@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: c68267651ea846a4b83947eef7ec08b4
+timeCreated: 1504683980
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 110870-crosshair_0
+    21300002: 110870-crosshair_1
+    21300004: 110870-crosshair_2
+    21300006: 110870-crosshair_3
+    21300008: 110870-crosshair_4
+    21300010: 110870-crosshair_5
+    21300012: 110870-crosshair_6
+    21300014: 110870-crosshair_7
+    21300016: 110870-crosshair_8
+    21300018: 110870-crosshair_9
+    21300020: 110870-crosshair_10
+    21300022: 110870-crosshair_11
+    21300024: 110870-crosshair_12
+    21300026: 110870-crosshair_13
+    21300028: 110870-crosshair_14
+    21300030: 110870-crosshair_15
+    21300032: 110870-crosshair_16
+    21300034: 110870-crosshair_17
+    21300036: 110870-crosshair_18
+    21300038: 110870-crosshair_19
+    21300040: 110870-crosshair_20
+    21300042: 110870-crosshair_21
+    21300044: 110870-crosshair_22
+    21300046: 110870-crosshair_23
+    21300048: 110870-crosshair_24
+    21300050: 110870-crosshair_25
+    21300052: 110870-crosshair_26
+    21300054: 110870-crosshair_27
+    21300056: 110870-crosshair_28
+    21300058: 110870-crosshair_29
+    21300060: 110870-crosshair_30
+    21300062: 110870-crosshair_31
+    21300064: 110870-crosshair_32
+    21300066: 110870-crosshair_33
+    21300068: 110870-crosshair_34
+    21300070: 110870-crosshair_35
+    21300072: 110870-crosshair_36
+    21300074: 110870-crosshair_37
+    21300076: 110870-crosshair_38
+    21300078: 110870-crosshair_39
+    21300080: 110870-crosshair_40
+    21300082: 110870-crosshair_41
+    21300084: 110870-crosshair_42
+    21300086: 110870-crosshair_43
+    21300088: 110870-crosshair_44
+    21300090: 110870-crosshair_45
+    21300092: 110870-crosshair_46
+    21300094: 110870-crosshair_47
+    21300096: 110870-crosshair_48
+    21300098: 110870-crosshair_49
+    21300100: 110870-crosshair_50
+    21300102: 110870-crosshair_51
+    21300104: 110870-crosshair_52
+    21300106: 110870-crosshair_53
+    21300108: 110870-crosshair_54
+    21300110: 110870-crosshair_55
+    21300112: 110870-crosshair_56
+    21300114: 110870-crosshair_57
+    21300116: 110870-crosshair_58
+    21300118: 110870-crosshair_59
+    21300120: 110870-crosshair_60
+    21300122: 110870-crosshair_61
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Tizen
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Samsung TV
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 110870-crosshair_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 406
+        width: 127
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 110870-crosshair_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 406
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 110870-crosshair_2
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 406
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 110870-crosshair_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 218
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 110870-crosshair_4
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 218
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 110870-crosshair_5
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 220
+        width: 128
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 110870-crosshair_6
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 30
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 110870-crosshair_7
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 30
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 110870-crosshair_8
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 30
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
