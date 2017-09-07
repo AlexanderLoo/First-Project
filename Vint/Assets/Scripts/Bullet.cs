@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-	public Transform shotSpawn;
+	private Transform shotSpawn;
 	public float speed;
 
 	// OnEnable se ejecuta cada vez que la bala se activa
 	void OnEnable () {
+		shotSpawn = GameObject.Find ("ShotSpawn").transform;
 		//accedemos al componente Rigidbody2D en la bala
 		//y hacemos que su velocidad sea para arriba
 		GetComponent<Rigidbody2D> ().velocity = shotSpawn.right * speed;
