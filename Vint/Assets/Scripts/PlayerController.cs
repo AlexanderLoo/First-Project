@@ -27,10 +27,10 @@ public class PlayerController : MonoBehaviour {
 
 	void LookAtCrosshair(){
 		//Función para que el player mire hacia la mira
-		if (crosshair.position.x < 0) {
+		if (crosshair.position.x < transform.position.x) {
 			_sr.flipX = true;
 		}
-		if (crosshair.position.x > 0) {
+		if (crosshair.position.x > transform.position.x) {
 			_sr.flipX = false;
 		}
 	}

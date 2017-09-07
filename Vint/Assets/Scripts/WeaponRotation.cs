@@ -16,7 +16,8 @@ public class WeaponRotation : MonoBehaviour {
 
 	void Update(){
 		//Hacemos que la coordenada 'X' mire siempre hacia la mira
-		transform.right = crosshair.position;
+		Vector2 newVector = crosshair.position - transform.position;
+		transform.right = newVector;
 		FlippingWithPlayer ();
 		ChangeOrderInLayer ();
 	}
