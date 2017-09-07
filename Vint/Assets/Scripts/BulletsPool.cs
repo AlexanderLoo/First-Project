@@ -7,10 +7,12 @@ public class BulletsPool : MonoBehaviour {
 	public GameObject bulletPrefab;
 	private GameObject[] bulletList;
 
+	void Awake(){
 
+		gameObject.name = bulletPrefab.name + "Pool";
+	}
 	void Start () {
 		
-		gameObject.name = bulletPrefab.name + "Pool";
 		//creamos nuestro arreglo y fijamos la cantidad de elementos que tendrá
 		bulletList = new GameObject[25];
 
