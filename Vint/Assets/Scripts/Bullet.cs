@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
+
+	public Transform shotSpawn;
+	public float speed;
+
 	// OnEnable se ejecuta cada vez que la bala se activa
 	void OnEnable () {
-		//accedemos al componente Rigidbody en la bala
+		//accedemos al componente Rigidbody2D en la bala
 		//y hacemos que su velocidad sea para arriba
-		GetComponent<Rigidbody> ().velocity = Vector3.up * 20;
+		GetComponent<Rigidbody2D> ().velocity = shotSpawn.right * speed;
 		//ejecutamos la funcion DestroyBullet 2 segundos despues de que la bala aparece
 		Invoke("DestroyBullet", 2);
 	}
