@@ -6,15 +6,17 @@ public class Shooting : MonoBehaviour {
 	
 	//este es el pool de donde vamos a sacar las balas
 	private BulletsPool bulletsPool;
-	private bool shot;
-
+	private Transform shotSpawn;
+	[System.NonSerialized]
+	public bool shot;
 	//esta es la bala que vamos a crear
 	public GameObject bulletPrefab;
-	public Transform shotSpawn;
+
 
 	void Start () {
 
 		bulletsPool = GameObject.Find (bulletPrefab.name + "Pool").GetComponent<BulletsPool> ();
+		shotSpawn = GameObject.Find ("ShotSpawn").transform;
 		InvokeRepeating ("CreateBullet", 0, 0.1f);
 	}
 		

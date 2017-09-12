@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class EnemySensor : MonoBehaviour {
 
-	public EnemyMovement enemyMovementScript;
+	private EnemyMovement enemyMovementScript;
+
+	void Start(){
+
+		enemyMovementScript = GetComponentInParent<EnemyMovement> ();
+	}
 
 	void OnTriggerEnter2D(Collider2D other){
 
-		if (other.CompareTag("Player")) {
+		if (other.CompareTag("PlayerSensor")) {
 			enemyMovementScript.playerDetected = true;
 		}
 	}
