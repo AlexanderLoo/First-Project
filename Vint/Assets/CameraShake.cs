@@ -31,16 +31,10 @@ public class CameraShake : MonoBehaviour
 
 	void Update()
 	{
-		if (shakeDuration > 0)
-		{
+		
+
 			camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 
-			shakeDuration -= Time.deltaTime * decreaseFactor;
-		}
-		else
-		{
-			shakeDuration = 0f;
-			camTransform.localPosition = originalPos;
-		}
+			
 	}
 }
