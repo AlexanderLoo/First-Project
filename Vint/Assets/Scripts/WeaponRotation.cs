@@ -30,10 +30,10 @@ public class WeaponRotation : MonoBehaviour {
 	void ChangeOrderInLayer(){
 		//Función para poner el arma detrás del player si se esta apuntando hacia arriba
 		//Modificamos el número de orden de la capa(sorting layer)
-		if (crosshair.position.y > 0) {
+		if (crosshair.position.y > transform.position.y) {
 			weaponSprite.sortingOrder = 0;
 		}
-		if (crosshair.position.y < 0) {
+		if (crosshair.position.y < transform.position.y) {
 			weaponSprite.sortingOrder = 2;
 		}
 	}
