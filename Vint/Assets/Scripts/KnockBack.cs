@@ -5,17 +5,16 @@ using UnityEngine;
 public class KnockBack : MonoBehaviour {
 
 	private Rigidbody2D _rb;
-	private SpriteRenderer _sr;
 	private Shooting _shot;
-	public GameObject _maincCamera; 
+	private GameObject _mainCamera; 
 
 	public float knockBackForce;
 
 	void Start(){
 
 		_rb = GetComponent<Rigidbody2D> ();
-		_sr = GetComponent<SpriteRenderer> ();
 		_shot = GetComponentInChildren<Shooting> ();
+		_mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
 	}
 
 	void Update(){
@@ -24,10 +23,10 @@ public class KnockBack : MonoBehaviour {
 		if (_shot.shot) {
 			_rb.AddForce (-_shot.transform.right * knockBackForce);
 			//activar temblor
-			_maincCamera.GetComponent<CameraShake> ().enabled = true;
+			_mainCamera.GetComponent<CameraShake> ().enabled = true;
 		} else {
 			//desactivar temblor
-			_maincCamera.GetComponent<CameraShake> ().enabled = false;
+			_mainCamera.GetComponent<CameraShake> ().enabled = false;
 		}
 	}
 }

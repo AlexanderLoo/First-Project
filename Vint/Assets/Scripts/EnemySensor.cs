@@ -6,7 +6,7 @@ public class EnemySensor : MonoBehaviour {
 
 	private EnemyMovement enemyMovementScript;
 
-	void Start(){
+	void Awake(){
 
 		enemyMovementScript = GetComponentInParent<EnemyMovement> ();
 	}

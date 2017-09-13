@@ -8,7 +8,6 @@ public class EnemyMovement : MonoBehaviour {
 	private SpriteRenderer _sr;
 	private Vector2 movement;
 	private Transform playerPos;
-	[System.NonSerialized]
 	public bool playerDetected;
 	public float speed;
 	public float changePatrolTime;
@@ -19,6 +18,11 @@ public class EnemyMovement : MonoBehaviour {
 		_sr = GetComponent<SpriteRenderer> ();
 		playerPos = GameObject.Find ("Player").transform;
 		InvokeRepeating ("MovementPatrol",0, changePatrolTime);
+	}
+
+	void OnEnable(){
+
+		playerDetected = false;
 	}
 
 	void Update(){
