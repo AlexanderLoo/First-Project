@@ -7,6 +7,7 @@ public class KnockBack : MonoBehaviour {
 	private Rigidbody2D _rb;
 	private SpriteRenderer _sr;
 	private Shooting _shot;
+	public GameObject _maincCamera; 
 
 	public float knockBackForce;
 
@@ -22,6 +23,11 @@ public class KnockBack : MonoBehaviour {
 		//Si se dispara se agrega fuerza física al lado contrario del eje 'X' del arma
 		if (_shot.shot) {
 			_rb.AddForce (-_shot.transform.right * knockBackForce);
+			//activar temblor
+			_maincCamera.GetComponent<CameraShake> ().enabled = true;
+		} else {
+			//desactivar temblor
+			_maincCamera.GetComponent<CameraShake> ().enabled = false;
 		}
 	}
 }
