@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour {
 
@@ -19,9 +20,10 @@ public class PlayerController : MonoBehaviour {
 
 	void Update(){
 
-		float h = Input.GetAxis ("Horizontal");
+		/*float h = Input.GetAxis ("Horizontal");
 		float v = Input.GetAxis ("Vertical");
-		PlayerMovement (h,v);
+		PlayerMovement (h,v);*/
+		PlayerMovementInMobile ();
 		LookAtCrosshair ();
 	}
 
@@ -35,9 +37,16 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void PlayerMovement(float h, float v){
+	/*void PlayerMovement(float h, float v){
 
 		Vector2 movement = new Vector2 (h, v);
+		movement.Normalize ();
+		_rb.velocity = movement * speed;
+	}*/
+
+	void PlayerMovementInMobile(){
+
+		Vector2 movement = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),CrossPlatformInputManager.GetAxis("Vertical"));
 		movement.Normalize ();
 		_rb.velocity = movement * speed;
 	}

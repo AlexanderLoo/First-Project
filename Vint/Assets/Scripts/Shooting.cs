@@ -22,19 +22,35 @@ public class Shooting : MonoBehaviour {
 		
 	void Update () {
 		
+		IsShooting ();
+	}
+	//Función para disparar con el mouse
+	void IsShooting(){
+		
 		if (Input.GetButton("Fire1")){
 			shot = true;
 		} else {
 			shot = false;
 		}
 	}
-
 	//esta funcion crea una bala
 	void CreateBullet(){
 		
 		if (shot) {
 			bulletsPool.SpawnBullets (shotSpawn.position, shotSpawn.rotation);
 		}
+	}
+
+	//Las siguientes funciones sirven para ShotButton en caso de móviles
+	//Activamos el disparo
+	public void ActivateShot(){
+
+		shot = true;
+	}
+	//Desactivamos el disparo
+	public void DeactivateShot(){
+
+		shot = false;
 	}
 }
 
