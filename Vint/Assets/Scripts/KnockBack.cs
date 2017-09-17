@@ -10,7 +10,7 @@ public class KnockBack : MonoBehaviour {
 
 	public float knockBackForce;
 
-	void Start(){
+	void Awake(){
 
 		_rb = GetComponent<Rigidbody2D> ();
 		_shot = GetComponentInChildren<Shooting> ();

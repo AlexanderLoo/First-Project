@@ -7,7 +7,7 @@ public class WeaponRotation : MonoBehaviour {
 	private Transform crosshair;
 	private SpriteRenderer playerSprite, weaponSprite;
 
-	void Start(){
+	void Awake(){
 
 		crosshair = GameObject.Find ("Crosshair").transform;
 		playerSprite = GameObject.Find ("Player").GetComponent<SpriteRenderer> ();

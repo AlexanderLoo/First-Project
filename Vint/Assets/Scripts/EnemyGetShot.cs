@@ -16,8 +16,8 @@ public class EnemyGetShot : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		//Por el momento usamos el tag "Player" para detectar la bala
-		if (other.CompareTag("Player")) {
+		
+		if (other.CompareTag("Bullet")) {
 			EnemySplit ();
 			other.gameObject.SetActive (false);
 			gameObject.SetActive (false);
@@ -25,7 +25,6 @@ public class EnemyGetShot : MonoBehaviour {
 	}
 
 	GameObject EnemySplit(){
-
 
 		//Si el enemigo es de tamaño grande..recorremos la lista de enemigos y buscamos un enemigo de tamaño mediano y que este inactivo
 		//Luego llamamos la función para activar el enemigo y retornamos el enemigo

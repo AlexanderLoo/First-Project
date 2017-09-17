@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 
 	public float speed;
 
-	void Start(){
+	void Awake(){
 
 		_sr = GetComponent<SpriteRenderer> ();
 		_rb = GetComponent<Rigidbody2D> ();
