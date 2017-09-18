@@ -13,7 +13,6 @@ public class PauseUI : MonoBehaviour {
 	//Quizas no sea necesario una vez desactivado los controller móviles
 	public GameObject _Crosshair;
 
-
 	public void PauseMenuPopup(){
 
 		//Pausamos el juego y activamos el menu de pausa
