@@ -11,6 +11,7 @@ public class Shooting : MonoBehaviour {
 	public bool shot;
 	//esta es la bala que vamos a crear
 	public GameObject bulletPrefab;
+	public VirtualJoystick onDragAimJoystick;
 
 
 	void Start () {
@@ -26,8 +27,9 @@ public class Shooting : MonoBehaviour {
 	}
 	//Función para disparar con el mouse
 	void IsShooting(){
-		
-		if (Input.GetButton("Fire1")){
+
+		//Si tenemos movimiento en el aimJoystick, disparamos
+		if (onDragAimJoystick.inputVector != Vector2.zero){
 			shot = true;
 		} else {
 			shot = false;
@@ -41,17 +43,6 @@ public class Shooting : MonoBehaviour {
 		}
 	}
 
-	//Las siguientes funciones sirven para ShotButton en caso de móviles
-	//Activamos el disparo
-	public void ActivateShot(){
-
-		shot = true;
-	}
-	//Desactivamos el disparo
-	public void DeactivateShot(){
-
-		shot = false;
-	}
 }
 
 

@@ -7,10 +7,8 @@ public class MainUI : MonoBehaviour {
 
 
 	public GameObject optionPanel, sharePanel;
+	public AudioSource music;
 	private bool optionButtonPressed, shareButtonPressed;
-
-
-
 
 	public void OptionButtonManager(){
 
@@ -24,6 +22,9 @@ public class MainUI : MonoBehaviour {
 		shareButtonPressed = !shareButtonPressed;
 	}
 
+	public void MuteMusic(){
 
+		music.mute = !music.mute;
+	}
 
 }

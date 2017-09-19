@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyGetShot : MonoBehaviour {
 
 	//Declaramos una variable para tener acceso a la lista enemylist;
 	private GameObject[] enemyPoolList;
+	private ScoreManager totalScore;
 	//Esta variable sirve para setear la cantidad de divisiones que va tener el enemigo
 	private int enemiesNum = 0, maxEnemiesNum = 2;
 	public bool bigSizeEnemy, normalSizeEnemy, smallSizeEnemy;
@@ -13,6 +15,7 @@ public class EnemyGetShot : MonoBehaviour {
 	void Awake(){
 
 		enemyPoolList = GameObject.Find ("EnemyPool").GetComponent<EnemyPool> ().enemyList;
+		totalScore = GameObject.Find ("ScoreManager").GetComponent<ScoreManager> ();
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -20,6 +23,7 @@ public class EnemyGetShot : MonoBehaviour {
 		if (other.CompareTag("Bullet")) {
 			EnemySplit ();
 			other.gameObject.SetActive (false);
+			AddScore ();
 			gameObject.SetActive (false);
 		}
 	}
@@ -63,5 +67,20 @@ public class EnemyGetShot : MonoBehaviour {
 		enemyPoolList [i].transform.position = transform.position;
 		enemyPoolList [i].transform.rotation = transform.rotation;
 		return enemyPoolList [i];
+	}
+
+	//Función que se encarga de dar puntaje al player según el tipo de enemigo
+	void AddScore(){
+
+		int score;
+
+		if (bigSizeEnemy) {
+			score = 10;
+		} else if (normalSizeEnemy) {
+			score = 20;
+		} else {
+			score = 50;
+		}
+		totalScore.totalScore += score;
 	}
 }
