@@ -19,8 +19,14 @@ public class SpawnController : MonoBehaviour {
 		//asignamos los límites de pantalla encontrados en el script "AdjustSpawnsPosition" de ambas coordenadas
 		xLimits = new Vector2 (adjustSpawnsPos.minInX, adjustSpawnsPos.maxInX);
 		yLimits = new Vector2 (adjustSpawnsPos.minInY, adjustSpawnsPos.maxInY);
-		TopButtonSpawns ();
+
 		RightLeftSpawns ();
+		TopButtonSpawns ();
+		if (currentEnemiesCount == 0 ) {
+			InvokeRepeating ("TopButtonSpawns", 0, 0);
+			InvokeRepeating ("RightLeftSpawns", 0, 0);
+		}
+
 	}
 
 	void TopButtonSpawns(){
@@ -37,6 +43,8 @@ public class SpawnController : MonoBehaviour {
 				}
 			}
 			currentEnemiesCount = 0;
+
+		
 		}
 	}
 	void RightLeftSpawns(){
