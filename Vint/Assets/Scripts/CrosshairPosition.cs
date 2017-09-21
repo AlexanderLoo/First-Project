@@ -23,6 +23,5 @@ public class CrosshairPosition : MonoBehaviour {
 		//Otenemos la posición del player y le sumamos a nuestro vector movement para que su reposicionamiento sea relativo al del player
 		Vector2 playerPos = transform.parent.position;
 		transform.position = playerPos + movement * aimRadius;
-			
 	}
 }

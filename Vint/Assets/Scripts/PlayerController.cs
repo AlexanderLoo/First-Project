@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			LookAtCrosshair ();
 		}
-
 	}
 
 	void LookAtCrosshair(){

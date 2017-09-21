@@ -5,19 +5,16 @@ using UnityEngine;
 public class Shooting : MonoBehaviour {
 	
 	//este es el pool de donde vamos a sacar las balas
-	private BulletsPool bulletsPool;
-	private Transform shotSpawn;
+	public BulletsPool bulletsPool;
+	public Transform shotSpawn;
 	[System.NonSerialized]
 	public bool shot;
 	//esta es la bala que vamos a crear
 	public GameObject bulletPrefab;
 	public VirtualJoystick onDragAimJoystick;
 
-
 	void Start () {
 
-		bulletsPool = GameObject.Find (bulletPrefab.name + "Pool").GetComponent<BulletsPool> ();
-		shotSpawn = GameObject.Find ("ShotSpawn").transform;
 		InvokeRepeating ("CreateBullet", 0, 0.1f);
 	}
 		
@@ -25,7 +22,7 @@ public class Shooting : MonoBehaviour {
 		
 		IsShooting ();
 	}
-	//Función para disparar con el mouse
+
 	void IsShooting(){
 
 		//Si tenemos movimiento en el aimJoystick, disparamos

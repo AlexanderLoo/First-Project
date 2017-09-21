@@ -13,15 +13,7 @@ public class EnemyPool : MonoBehaviour {
 	void Awake(){
 
 		enemyList = new GameObject[30];
-		/*Por cada tipo de enemigo en la lista "enemiesTypes" agregamos una cantidad a nuestro EnemyPool
-		foreach (GameObject enemyType in enemiesTypes) {
-			for (int i = 0; i < enemyList.Length/3; i++) {
-
-				GameObject newEnemy = (GameObject)Instantiate (enemyType);
-				newEnemy.SetActive (false);
-				enemyList [i] = newEnemy;
-			}
-		}*/
+	
 		for (int i = 0; i < 10; i++) {
 			GameObject newEnemy = (GameObject)Instantiate (enemiesTypes [0]);
 			newEnemy.SetActive (false);

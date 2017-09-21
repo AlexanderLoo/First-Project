@@ -4,29 +4,18 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour {
 
-	//lista de los spawns top:0, button:1, right:2, left:3
+	public GetScreenSize screenSize;
+	//lista de los spawns top:0, bottom:1, right:2, left:3
 	public GameObject[] spawnPosList;
 	public EnemyPool enemyPool;
 	public int maxEnemiesCount;
+	public int startWaveNum = 3;
 	private int currentEnemiesCount;
-	private AdjustSpawnsPosition adjustSpawnsPos;
-	//creamos 2 Vector2 para manejar de forma mas rápida los límites en eje X y Y
-	private Vector2 xLimits, yLimits;
+
 
 	void Start(){
-
-		adjustSpawnsPos = GetComponent<AdjustSpawnsPosition> ();
-		//asignamos los límites de pantalla encontrados en el script "AdjustSpawnsPosition" de ambas coordenadas
-		xLimits = new Vector2 (adjustSpawnsPos.minInX, adjustSpawnsPos.maxInX);
-		yLimits = new Vector2 (adjustSpawnsPos.minInY, adjustSpawnsPos.maxInY);
-
-		RightLeftSpawns ();
-		TopButtonSpawns ();
-		if (currentEnemiesCount == 0 ) {
-			InvokeRepeating ("TopButtonSpawns", 0, 0);
-			InvokeRepeating ("RightLeftSpawns", 0, 0);
-		}
-
+		//CUALQUIER CAMBIO DE LOS SPAWNS, AQUÍ
+		InvokeRepeating ("BasicWave",startWaveNum,5);
 	}
 
 	void TopButtonSpawns(){
@@ -38,15 +27,14 @@ public class SpawnController : MonoBehaviour {
 				if (!enemyPool.enemyList[j].activeSelf && currentEnemiesCount < maxEnemiesCount) {
 					//Se Spawnea el enemigo en el spawn con coordenada 'X' aleatorio(dentro del rango límite establecido)
 					Vector2 newPos = spawnPosList [i].transform.position;
-					newPos.x = Random.Range (xLimits.x, xLimits.y);
+					newPos.x = Random.Range (-screenSize.maxInX, screenSize.maxInX);
 					EnemySpawnManager (j, newPos);
 				}
 			}
 			currentEnemiesCount = 0;
-
-		
 		}
 	}
+
 	void RightLeftSpawns(){
 		//Misma lógica que la función de arriba con la diferencia que se usa los spawns de derecha e izquierda
 		for (int i = 2; i < 4; i++) {
@@ -54,7 +42,7 @@ public class SpawnController : MonoBehaviour {
 				if (!enemyPool.enemyList[j].activeSelf && currentEnemiesCount < maxEnemiesCount) {
 					Vector2 newPos = spawnPosList [i].transform.position;
 					//En este caso alteramos la coordenada 'Y' para que sea aleatoria
-					newPos.y = Random.Range (yLimits.x, yLimits.y);
+					newPos.y = Random.Range (-screenSize.maxInY, screenSize.maxInY);
 					EnemySpawnManager (j, newPos);
 				}
 			}
@@ -67,6 +55,15 @@ public class SpawnController : MonoBehaviour {
 		enemyPool.enemyList [j].transform.position = newPos;
 		enemyPool.enemyList [j].SetActive (true);
 		currentEnemiesCount++;
+	}
+
+
+	//*******Las siguientes funciones manejan los waves***********
+
+	void BasicWave(){
+
+		RightLeftSpawns ();
+		TopButtonSpawns ();
 	}
 }
 

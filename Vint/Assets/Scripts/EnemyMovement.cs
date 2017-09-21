@@ -32,7 +32,6 @@ public class EnemyMovement : MonoBehaviour {
 		FlippingSprite ();
 	}
 
-
 	void MovementPatrol(){
 
 		//Si se detectó el player en el "EnemySensor", seguimos al player

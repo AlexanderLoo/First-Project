@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class WeaponRotation : MonoBehaviour {
 
-	private Transform crosshair;
-	private SpriteRenderer playerSprite, weaponSprite;
+	public Transform crosshair;
+	public SpriteRenderer playerSprite;
+
+	private SpriteRenderer weaponSprite;
 
 	void Awake(){
 
-		crosshair = GameObject.Find ("Crosshair").transform;
-		playerSprite = GameObject.Find ("Player").GetComponent<SpriteRenderer> ();
 		weaponSprite = GameObject.FindGameObjectWithTag ("Weapon").GetComponent<SpriteRenderer> ();
 	}
 

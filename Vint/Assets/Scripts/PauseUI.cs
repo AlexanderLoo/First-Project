@@ -10,8 +10,6 @@ public class PauseUI : MonoBehaviour {
 	public GameObject mobileController;
 	public GameObject questionPanel;
 	public GameObject[] confirmButton;
-	//Quizas no sea necesario una vez desactivado los controller móviles
-	public GameObject _Crosshair;
 
 	public void PauseMenuPopup(){
 
@@ -19,7 +17,6 @@ public class PauseUI : MonoBehaviour {
 		Time.timeScale = 0;
 		mobileController.SetActive (false);
 		pauseMenu.SetActive (true);
-		_Crosshair.GetComponent<CrosshairPosition> ().enabled = false;
 	}
 	//Esta función permite activar el panel de confirmación
 	public void QuestionPanelPopup(){
@@ -38,11 +35,11 @@ public class PauseUI : MonoBehaviour {
 	public void ContinueGame(){
 
 		//Establecemos el juego de nuevo y desactivamos el menu de pausa
-		Time.timeScale = 1;
 		mobileController.SetActive (true);
 		pauseMenu.SetActive (false);
-		_Crosshair.GetComponent<CrosshairPosition> ().enabled = true; 
+		Time.timeScale = 1;
 	}
+
 	//LAS SIGUENTES FUNCIONES SE EJECUTAN CUANDO SE CONFIRMA LA ACCIÓN(botón de confirmación)
 	public void RestartGame(){
 
