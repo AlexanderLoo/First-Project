@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainUI : MonoBehaviour {
 
@@ -14,7 +14,7 @@ public class MainUI : MonoBehaviour {
 
 	//Función para iniciar el juego(cambio de escena)
 	public void StartGame(){
-
+		
 		SceneManager.LoadScene ("Main");
 	}
 
@@ -35,7 +35,6 @@ public class MainUI : MonoBehaviour {
 
 		music.mute = !music.mute;
 	}
-
 
 
 }
