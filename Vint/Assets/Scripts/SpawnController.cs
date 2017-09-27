@@ -11,22 +11,28 @@ public class SpawnController : MonoBehaviour {
 	public int maxEnemiesCount;
 	public int startWaveNum = 3;
 	private int currentEnemiesCount;
+	public int NumberOfEnemiesInactivos;
+	private int MaxEnemies = 30;
+	public int enemyCount;
    
 
 
     void Start(){
         //CUALQUIER CAMBIO DE LOS SPAWNS, AQUÍ
-        GameObject[] NumberEnemies;
-        NumberEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (NumberEnemies.Length == 0)
-        {
-            Invoke ("BasicWave",2);
-           
-         //   InvokeReapeting("BasicWave", startWaveNum, 5);
-        }   
+//        GameObject[] NumberEnemies;
+//        NumberEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+//        if (NumberEnemies.Length == 0)
+//        {
+//           
+//           
+        // InvokeRepeating("BasicWave", startWaveNum,5);
+//        }   
         
 	}
-    
+
+	void Update(){
+		Invoke ("BasicWave", 2);
+	}
 
     void TopButtonSpawns(){
 		//El primer for recorre el spawn de arriba y luego el de abajo
@@ -38,6 +44,8 @@ public class SpawnController : MonoBehaviour {
 					//Se Spawnea el enemigo en el spawn con coordenada 'X' aleatorio(dentro del rango límite establecido)
 					Vector2 newPos = spawnPosList [i].transform.position;
 					newPos.x = Random.Range (-screenSize.maxInX, screenSize.maxInX);
+
+				
 					EnemySpawnManager (j, newPos);
 				}
 			}
@@ -65,13 +73,14 @@ public class SpawnController : MonoBehaviour {
 		enemyPool.enemyList [j].transform.position = newPos;
 		enemyPool.enemyList [j].SetActive (true);
 		currentEnemiesCount++;
+		enemyCount++;
 	}
 
 
 	//*******Las siguientes funciones manejan los waves***********
 
 	void BasicWave(){
-
+		
 		RightLeftSpawns ();
 		TopButtonSpawns ();
 	}
