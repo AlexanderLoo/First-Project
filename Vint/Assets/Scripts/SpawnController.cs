@@ -9,43 +9,31 @@ public class SpawnController : MonoBehaviour {
 	public GameObject[] spawnPosList;
 	public EnemyPool enemyPool;
 	public int maxEnemiesCount;
+	//Esta variable cuenta los enemigos activos(la antigua variable "enemyCount")
+	public int activeEnemies;
 	public int startWaveNum = 3;
 	private int currentEnemiesCount;
-	public int NumberOfEnemiesInactivos;
-	private int MaxEnemies = 30;
-	public int enemyCount;
-   
 
+	void Start(){
 
-    void Start(){
-        //CUALQUIER CAMBIO DE LOS SPAWNS, AQUÍ
-//        GameObject[] NumberEnemies;
-//        NumberEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-//        if (NumberEnemies.Length == 0)
-//        {
-//           
-//           
-        // InvokeRepeating("BasicWave", startWaveNum,5);
-//        }   
-        
+		Invoke ("BasicWave", startWaveNum);
 	}
 
 	void Update(){
-		Invoke ("BasicWave", 2);
+		
 	}
 
     void TopButtonSpawns(){
 		//El primer for recorre el spawn de arriba y luego el de abajo
 		for (int i = 0; i < 2; i++) {
 			//Este bucle for recorre los enemigos de la lista enemyPool
-			for (int j = 0; j < enemyPool.enemyList.Length; j++) {
+			//El valor de j permite recorrer la lista de forma aleatoria(para evitar spawnear primero los enemigos grandes, sino de forma aleatoria)
+			for (int j = Random.Range(0,enemyPool.enemyList.Length); j < enemyPool.enemyList.Length; j++) {
 				//si el enemigo esta desactivado y no sobrepasamos el conteo máximo de enemigos que se quiere spawnear...
 				if (!enemyPool.enemyList[j].activeSelf && currentEnemiesCount < maxEnemiesCount) {
 					//Se Spawnea el enemigo en el spawn con coordenada 'X' aleatorio(dentro del rango límite establecido)
 					Vector2 newPos = spawnPosList [i].transform.position;
 					newPos.x = Random.Range (-screenSize.maxInX, screenSize.maxInX);
-
-				
 					EnemySpawnManager (j, newPos);
 				}
 			}
@@ -56,7 +44,7 @@ public class SpawnController : MonoBehaviour {
 	void RightLeftSpawns(){
 		//Misma lógica que la función de arriba con la diferencia que se usa los spawns de derecha e izquierda
 		for (int i = 2; i < 4; i++) {
-			for (int j = 0; j < enemyPool.enemyList.Length; j++) {
+			for (int j = Random.Range(0,enemyPool.enemyList.Length); j < enemyPool.enemyList.Length; j++) {
 				if (!enemyPool.enemyList[j].activeSelf && currentEnemiesCount < maxEnemiesCount) {
 					Vector2 newPos = spawnPosList [i].transform.position;
 					//En este caso alteramos la coordenada 'Y' para que sea aleatoria
@@ -73,8 +61,9 @@ public class SpawnController : MonoBehaviour {
 		enemyPool.enemyList [j].transform.position = newPos;
 		enemyPool.enemyList [j].SetActive (true);
 		currentEnemiesCount++;
-		enemyCount++;
+		activeEnemies++;
 	}
+
 
 
 	//*******Las siguientes funciones manejan los waves***********
@@ -84,6 +73,9 @@ public class SpawnController : MonoBehaviour {
 		RightLeftSpawns ();
 		TopButtonSpawns ();
 	}
+
+	//*****CREAR NUEVAS IDEAS DE WAVES ACÁ********
+	//void ....
 }
 
 	
