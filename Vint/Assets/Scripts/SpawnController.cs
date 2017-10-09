@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour {
 
-	public GetScreenSize screenSize;
+
+	public Health playerHealth;
 	//lista de los spawns top:0, bottom:1, right:2, left:3
 	public GameObject[] spawnPosList;
 	public EnemyPool enemyPool;
@@ -16,14 +17,14 @@ public class SpawnController : MonoBehaviour {
 
 	void Start(){
 
-		Invoke ("BasicWave", startWaveNum);
+		InvokeRepeating ("BasicWave", startWaveNum, startWaveNum);
 	}
 
 	void Update(){
-		
+
 	}
 
-    void TopButtonSpawns(){
+	void TopButtonSpawns(){
 		//El primer for recorre el spawn de arriba y luego el de abajo
 		for (int i = 0; i < 2; i++) {
 			//Este bucle for recorre los enemigos de la lista enemyPool
@@ -33,7 +34,7 @@ public class SpawnController : MonoBehaviour {
 				if (!enemyPool.enemyList[j].activeSelf && currentEnemiesCount < maxEnemiesCount) {
 					//Se Spawnea el enemigo en el spawn con coordenada 'X' aleatorio(dentro del rango límite establecido)
 					Vector2 newPos = spawnPosList [i].transform.position;
-					newPos.x = Random.Range (-screenSize.maxInX, screenSize.maxInX);
+					newPos.x = Random.Range (-GetScreenSize.screenSize.maxInX, GetScreenSize.screenSize.maxInX);
 					EnemySpawnManager (j, newPos);
 				}
 			}
@@ -48,7 +49,7 @@ public class SpawnController : MonoBehaviour {
 				if (!enemyPool.enemyList[j].activeSelf && currentEnemiesCount < maxEnemiesCount) {
 					Vector2 newPos = spawnPosList [i].transform.position;
 					//En este caso alteramos la coordenada 'Y' para que sea aleatoria
-					newPos.y = Random.Range (-screenSize.maxInY, screenSize.maxInY);
+					newPos.y = Random.Range (-GetScreenSize.screenSize.maxInY, GetScreenSize.screenSize.maxInY);
 					EnemySpawnManager (j, newPos);
 				}
 			}
@@ -69,14 +70,18 @@ public class SpawnController : MonoBehaviour {
 	//*******Las siguientes funciones manejan los waves***********
 
 	void BasicWave(){
-		
-		RightLeftSpawns ();
-		TopButtonSpawns ();
+
+		if (playerHealth.alive) {
+			RightLeftSpawns ();
+			TopButtonSpawns ();
+		}
+
 	}
 
 	//*****CREAR NUEVAS IDEAS DE WAVES ACÁ********
 	//void ....
 }
+
 
 	
 

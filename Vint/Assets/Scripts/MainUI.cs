@@ -8,13 +8,12 @@ public class MainUI : MonoBehaviour {
 
 	//Paneles de opciones y compartir
 	public GameObject optionPanel, sharePanel;
-	//referencia a musicController
-	public AudioSource music;
+	//Booleanos que permiten controlar si se presionó o no los botones de opciones y compartir
 	private bool optionButtonPressed, shareButtonPressed;
 
 	//Función para iniciar el juego(cambio de escena)
 	public void StartGame(){
-		
+
 		SceneManager.LoadScene ("Main");
 	}
 
@@ -30,11 +29,4 @@ public class MainUI : MonoBehaviour {
 		sharePanel.SetActive (!shareButtonPressed);
 		shareButtonPressed = !shareButtonPressed;
 	}
-	//función para silenciar la música
-	public void MuteMusic(){
-
-		music.mute = !music.mute;
-	}
-
-
 }

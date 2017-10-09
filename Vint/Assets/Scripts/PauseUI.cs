@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -9,7 +11,14 @@ public class PauseUI : MonoBehaviour {
 	public GameObject pauseMenu;
 	public GameObject mobileController;
 	public GameObject questionPanel;
-	public GameObject[] confirmButton;
+	public GameObject[] confirmButton;	
+
+	private Animator anim;
+
+	void Awake(){
+
+		anim = GetComponent<Animator> ();
+	}
 
 	public void PauseMenuPopup(){
 
@@ -17,11 +26,15 @@ public class PauseUI : MonoBehaviour {
 		Time.timeScale = 0;
 		mobileController.SetActive (false);
 		pauseMenu.SetActive (true);
+		//Activamos la animación del menu de pausa
+		anim.SetTrigger ("inPause");
+
 	}
 	//Esta función permite activar el panel de confirmación
 	public void QuestionPanelPopup(){
-		
+
 		questionPanel.SetActive (true);
+		anim.SetTrigger ("questionPanel");
 	}
 	//Desactiva el panel de confirmación(cancelButton)
 	public void DeactiveQuestionPanel(){
