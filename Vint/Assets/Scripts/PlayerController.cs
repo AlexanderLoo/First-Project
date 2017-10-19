@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	private Rigidbody2D _rb;
+	private VirtualJoystick movementJoystick;		
 
 	public float speed;
-	public VirtualJoystick movementJoystick;		
 
-	void Awake(){
+	void Start(){
 
 		_rb = GetComponent<Rigidbody2D> ();
+		movementJoystick = GameObject.Find ("MovementBackgroundJoystick").GetComponent<VirtualJoystick> ();
 	}
 
 	void Update(){

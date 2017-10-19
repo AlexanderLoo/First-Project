@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour {
 	
-	//este es el pool de donde vamos a sacar las balas
-	public BulletsPool bulletsPool;
 	public Transform shotSpawn;
 	[System.NonSerialized]
 	public bool shot;
 	//esta es la bala que vamos a crear
 	public GameObject bulletPrefab;
-	public VirtualJoystick onDragAimJoystick;
+	//este es el pool de donde vamos a sacar las balas
+	private BulletsPool bulletsPool;
+	private VirtualJoystick onDragAimJoystick;
 
 	void Start () {
 
+		bulletsPool = GameObject.Find ("BulletPool").GetComponent<BulletsPool> ();
+		onDragAimJoystick = GameObject.Find ("AimBackgroundJoystick").GetComponent<VirtualJoystick> ();
 		InvokeRepeating ("CreateBullet", 0, 0.1f);
 	}
 		

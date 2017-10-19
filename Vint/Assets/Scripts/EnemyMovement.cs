@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour {
 
 		_rb = GetComponent<Rigidbody2D> ();
 		_sr = GetComponent<SpriteRenderer> ();
-		playerPos = GameObject.Find ("Player").transform;
+		playerPos = GameObject.FindGameObjectWithTag ("Player").transform;
 		InvokeRepeating ("MovementPatrol",0, changePatrolTime);
 	}
 

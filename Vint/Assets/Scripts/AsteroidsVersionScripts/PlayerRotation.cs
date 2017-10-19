@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour {
 
-	public VirtualJoystick aimJoystick;
+	private VirtualJoystick aimJoystick;
 	private Vector2 lastPos;
+
+	void Start(){
+
+		aimJoystick = GameObject.Find ("AimBackgroundJoystick").GetComponent<VirtualJoystick> ();
+	}
 
 	void Update(){
 

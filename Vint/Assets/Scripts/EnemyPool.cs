@@ -10,7 +10,7 @@ public class EnemyPool : MonoBehaviour {
 	[System.NonSerialized]
 	public GameObject[] enemyList;
 
-	void Awake(){
+	void Start(){
 
 		enemyList = new GameObject[30];
 	

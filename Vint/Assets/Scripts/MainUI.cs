@@ -29,4 +29,9 @@ public class MainUI : MonoBehaviour {
 		sharePanel.SetActive (!shareButtonPressed);
 		shareButtonPressed = !shareButtonPressed;
 	}
+	//Función para ir a la tienda
+	public void ShopScreen(){
+
+		SceneManager.LoadScene ("ShopScreen");
+	}
 }

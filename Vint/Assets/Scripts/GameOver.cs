@@ -5,10 +5,16 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour {
 
-	public Health playerHealth;
 	public GameObject gameOverUI;
 	public ShowScore currentScore;
 
+	private Health playerHealth;
+
+
+	void Start(){
+
+		playerHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<Health> ();
+	}
 	void Update(){
 		//Si el player está muerto desactivamos los enemigos que siguen en la escena
 		if (!playerHealth.alive) {

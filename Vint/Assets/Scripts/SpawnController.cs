@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnController : MonoBehaviour {
 
 
-	public Health playerHealth;
+
 	//lista de los spawns top:0, bottom:1, right:2, left:3
 	public GameObject[] spawnPosList;
 	public EnemyPool enemyPool;
@@ -15,8 +15,11 @@ public class SpawnController : MonoBehaviour {
 	public int startWaveNum = 3;
 	private int currentEnemiesCount;
 
+	private Health playerHealth;
+
 	void Start(){
 
+		playerHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<Health> ();
 		InvokeRepeating ("BasicWave", startWaveNum, startWaveNum);
 	}
 

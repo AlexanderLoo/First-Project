@@ -7,12 +7,15 @@ public class PlayerFlipManager : MonoBehaviour {
 	private SpriteRenderer _sr;
 	private Transform crosshair;
 
-	public VirtualJoystick movementJoystick, aimJoystick;
+	private VirtualJoystick movementJoystick, aimJoystick;
 
 	void Awake(){
 
 		_sr = GetComponent<SpriteRenderer> ();
 		crosshair = GameObject.Find ("Crosshair").transform;
+		movementJoystick = GameObject.Find ("MovementBackgroundJoystick").GetComponent<VirtualJoystick> ();
+		aimJoystick = GameObject.Find ("AimBackgroundJoystick").GetComponent<VirtualJoystick> ();
+
 	}
 
 	void Update(){

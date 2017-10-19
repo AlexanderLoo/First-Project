@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class CrosshairPosition : MonoBehaviour {
 
-	public VirtualJoystick aimJoystick;
+	private VirtualJoystick aimJoystick;
 	public float aimRadius;
 
+	void Awake(){
+
+		aimJoystick = GameObject.Find ("AimBackgroundJoystick").GetComponent<VirtualJoystick> ();
+	}
 	void Update(){
 
 		//Igualamos la posición de la mira con la posición del mouse en la pantalla
