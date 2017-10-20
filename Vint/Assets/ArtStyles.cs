@@ -5,9 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class ArtStyles : ScriptableObject {
 
-	public string artStyleName;
+	public string name;
 	public int cost;
 	public GameObject player;
 	public GameObject[] enemies;
 	public GameObject bullet;
+
 }
