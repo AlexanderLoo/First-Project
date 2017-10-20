@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
-
 
 //Esta clase sirve para crear assets desde el editor
 //Creamos assets de tipo "ArtStyles" 
@@ -18,3 +18,4 @@ public class CreateArtStyle {
 		Selection.activeObject = asset;
 	}
 }
+#endif
