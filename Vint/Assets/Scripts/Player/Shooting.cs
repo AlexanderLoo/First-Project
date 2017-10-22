@@ -7,6 +7,7 @@ public class Shooting : MonoBehaviour {
 	public Transform shotSpawn;
 	[System.NonSerialized]
 	public bool shot;
+	public float fireRate;
 	//esta es la bala que vamos a crear
 	public GameObject bulletPrefab;
 	//este es el pool de donde vamos a sacar las balas
@@ -17,7 +18,7 @@ public class Shooting : MonoBehaviour {
 
 		bulletsPool = GameObject.Find ("BulletPool").GetComponent<BulletsPool> ();
 		onDragAimJoystick = GameObject.Find ("AimBackgroundJoystick").GetComponent<VirtualJoystick> ();
-		InvokeRepeating ("CreateBullet", 0, 0.1f);
+		InvokeRepeating ("CreateBullet", 0, fireRate);
 	}
 		
 	void Update () {

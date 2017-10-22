@@ -26,9 +26,9 @@ public class EnemyGetShot : MonoBehaviour {
 			EnemySplit ();
 			other.gameObject.SetActive (false);
 			AddScore ();
+			gameObject.SetActive (false);
 			//restamos el conteo de enemigos activados
 			spawnController.activeEnemies--;
-			gameObject.SetActive (false);
 		}
 	}
 

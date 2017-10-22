@@ -10,7 +10,6 @@ public class ShopCanvas : MonoBehaviour {
 	public Text[] nameText;
 	public Text[] costText;
 
-
 	public Scrollbar _scrollBar;
 	public float valueController, smoothing;
 	private float finalValue;
@@ -18,11 +17,9 @@ public class ShopCanvas : MonoBehaviour {
 
 	void Awake(){
 		//Al iniciar la escena asignamos cada item con sus respectivos nombres y costos
-		for (int i = 0; i < nameText.Length; i++) {
+		for (int i = 0; i < artStyles.Length; i++) {
 			nameText [i].text = artStyles [i].name;
-		}
-		for (int j = 0; j < costText.Length; j++) {
-			costText [j].text = artStyles [j].cost.ToString();
+			costText [i].text = artStyles [i].cost.ToString ();
 		}
 		showCoins = GameObject.Find ("TotalCoinsText").GetComponent<ShowCoins> ();
 	}
@@ -37,7 +34,7 @@ public class ShopCanvas : MonoBehaviour {
 
 		finalValue = _scrollBar.value - valueController;
 	}
-
+	//Al presionar el botón de atrás(X) regresamos a la pantalla de inicio
 	public void BackHomeScreen(){
 
 		SceneManager.LoadScene ("HomeScreen");

@@ -21,8 +21,8 @@ public class EnemiesBoundary : MonoBehaviour {
 		//si un enemigo sale del trigger, restamos el conteo de enemigos activos y lo desactivamos el enemigo
 		if (other.CompareTag("Enemy")) {
 
-			spawnController.activeEnemies--;
 			other.gameObject.SetActive (false);
+			spawnController.activeEnemies--;
 		}
 	}
 }
