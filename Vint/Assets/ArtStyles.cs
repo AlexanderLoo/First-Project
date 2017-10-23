@@ -10,5 +10,6 @@ public class ArtStyles : ScriptableObject {
 	public GameObject player;
 	public GameObject[] enemies;
 	public GameObject bullet;
+	public Vector3 backgroundColor;
 
 }

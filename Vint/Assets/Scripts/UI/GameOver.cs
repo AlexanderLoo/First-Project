@@ -7,7 +7,7 @@ public class GameOver : MonoBehaviour {
 
 	public GameObject gameOverUI;
 	public ShowScore currentScore;
-
+	public GameObject mobileController;
 	private Health playerHealth;
 
 
@@ -19,11 +19,13 @@ public class GameOver : MonoBehaviour {
 		//Si el player está muerto desactivamos los enemigos que siguen en la escena
 		if (!playerHealth.alive) {
 
-			GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+			Time.timeScale = 0;
+			mobileController.SetActive (false);
+			/*GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 			foreach (GameObject enemy in enemies) {
 
 				enemy.SetActive (false);
-			}
+			}*/
 			//Mostramos la ventana de Game Over
 			gameOverUI.SetActive (true);
 			//Mostramos el score alcanzado

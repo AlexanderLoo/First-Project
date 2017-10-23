@@ -12,6 +12,9 @@ public class MainUI : MonoBehaviour {
 	//Booleanos que permiten controlar si se presionó o no los botones de opciones y compartir
 	private bool optionButtonPressed, shareButtonPressed;
 	*/
+	void Start(){
+		Time.timeScale = 1;
+	}
 
 	//Función para iniciar el juego(cambio de escena)
 	public void StartGame(){

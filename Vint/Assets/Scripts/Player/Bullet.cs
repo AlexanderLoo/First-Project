@@ -16,8 +16,8 @@ public class Bullet : MonoBehaviour {
 		_rb = GetComponent<Rigidbody2D> ();
 		_rb.velocity = shotSpawn.right * speed;
 
-		//ejecutamos la funcion DestroyBullet 2 segundos despues de que la bala aparece
-		Invoke("DestroyBullet", 2);
+		//ejecutamos la funcion DestroyBullet 'n' segundos despues de que la bala aparece
+		Invoke("DestroyBullet", 3);
 	}
 
 	void DestroyBullet () {
