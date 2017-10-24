@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ArtController : MonoBehaviour {
 
 	//Una lista de todos los diseños que existen
 	public ArtStyles[] artStyles;
 	public int currentArtStye;
+	public SpriteRenderer background;
 
 	private EnemyPool enemyPool;	
 	private BulletsPool bulletPool;
+
 
 	void Awake(){
 
@@ -29,11 +32,20 @@ public class ArtController : MonoBehaviour {
 		//Agregamos la bala correspondiente
 		bulletPool.bulletPrefab = artStyles[currentArtStye].bullet;
 
+		if (artStyles [currentArtStye].background != null) {
+			//(PREGUNTAR AL PROFE COMO ALTERAR LA RESOLUCIÓN DE UN SPRITE O QUE SE ESCALE IGUAL AL TAMAÑO DE PANTALLA)
+			//artStyles [currentArtStye].background.rect.size.Set (GetScreenSize.screenSize.maxInX*2, GetScreenSize.screenSize.maxInY*2);	
+			//Asignamos el respectivo background sólo si el artystyle tiene uno
+			background.sprite = artStyles [currentArtStye].background;
+		} else {
+			//En caso contrario desactivamos el fondo
+			background.gameObject.SetActive (false);
+		}
 		//Cambiamos de color al background(Por ahora el de la cámara)
-		Color newColor = new Color(1/artStyles[currentArtStye].backgroundColor.x,
+		/*Color newColor = new Color(1/artStyles[currentArtStye].backgroundColor.x,
 			1/artStyles[currentArtStye].backgroundColor.y,
 			1/artStyles[currentArtStye].backgroundColor.z);
-		Camera.main.backgroundColor = newColor;
+		Camera.main.backgroundColor = newColor;*/
 	
 	}
 }

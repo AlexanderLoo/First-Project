@@ -14,6 +14,7 @@ public class ShopCanvas : MonoBehaviour {
 	public float valueController, smoothing;
 	private float finalValue;
 	private ShowCoins showCoins;
+	private IAPManager iapManager;
 
 	void Awake(){
 		//Al iniciar la escena asignamos cada item con sus respectivos nombres y costos
@@ -22,6 +23,7 @@ public class ShopCanvas : MonoBehaviour {
 			costText [i].text = artStyles [i].cost.ToString ();
 		}
 		showCoins = GameObject.Find ("TotalCoinsText").GetComponent<ShowCoins> ();
+		iapManager = GetComponent<IAPManager> ();
 	}
 	//Si se presiona el botón derecho scrolleamos un valor definido hacia la derecha
 	public void RightButtonPressed(){
@@ -57,6 +59,8 @@ public class ShopCanvas : MonoBehaviour {
 			PlayerPrefs.SetInt ("CurrentArtStyle", 0);
 			showCoins.UpdateTotalCoins ();
 		} else {
+
+			iapManager.ActiveIAPScreen ();
 			print ("No tienes suficientes monedas =(");
 			//SE PIENSA REMPLAZAR ESTA ÚLTIMA LÍNEA CON UN MOLESTO SCREEN DE UN DESCUENTO EN LOTES DE MONEDAS XD
 		}
@@ -69,6 +73,7 @@ public class ShopCanvas : MonoBehaviour {
 			PlayerPrefs.SetInt ("CurrentArtStyle", 1);
 			showCoins.UpdateTotalCoins ();
 		} else {
+			iapManager.ActiveIAPScreen ();
 			print ("No tienes suficientes monedas =(");
 		}
 	}

@@ -24,4 +24,9 @@ public class Coin : MonoBehaviour {
 
 		gameObject.SetActive (false);
 	}
+
+	void OnDisable(){
+
+		CancelInvoke ("DestroyCoin");
+	}
 }

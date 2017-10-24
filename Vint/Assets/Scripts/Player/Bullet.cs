@@ -24,4 +24,9 @@ public class Bullet : MonoBehaviour {
 		//desactivamos la bala
 		gameObject.SetActive (false);
 	}
+
+	void OnDisable(){
+
+		CancelInvoke ("DestroyBullet");
+	}
 }
