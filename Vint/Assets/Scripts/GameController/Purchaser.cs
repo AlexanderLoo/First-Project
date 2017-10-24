@@ -14,7 +14,6 @@ public class Purchaser : MonoBehaviour,IStoreListener {
 	public static string  oneHundredCoinsID = "oneHundredCoins";
 	public static string infinityCoinsID =  "infinityCoins"; 
 
-
 	void Start()
 	{
 		//Si no encontramos la referencia del _controller

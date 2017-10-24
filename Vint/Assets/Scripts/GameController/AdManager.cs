@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 
 public class AdManager : MonoBehaviour {
+	
+	public GameObject rewardImage;
 
 	/*public static AdManager ads;
 
@@ -24,6 +26,16 @@ public class AdManager : MonoBehaviour {
 
 		//Para vincular el id del juego a la hora de usar unityAds(Buscar el código en UnityAds dashboard)
 		//Advertisement.Initialize ("gameId");
+
+	}
+	//Lógica temporal(Se espera sugerencias)
+	void Update(){
+
+		if (Advertisement.IsReady()) {
+			rewardImage.SetActive (true);
+		} else {
+			rewardImage.SetActive (false);
+		}
 	}
 
 	public void ShowAd(){
@@ -51,4 +63,5 @@ public class AdManager : MonoBehaviour {
 			break;
 		}
 	}
+
 }
