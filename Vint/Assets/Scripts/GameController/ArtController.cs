@@ -17,7 +17,7 @@ public class ArtController : MonoBehaviour {
 	void Awake(){
 
 		//Obtemos el índice del último diseño equipado
-		//currentArtStye = PlayerPrefs.GetInt ("CurrentArtStyle");
+		currentArtStye = PlayerPrefs.GetInt ("CurrentArtStyle");
 		//Instanciamos al player según el diseño obtenido
 		Instantiate (artStyles [currentArtStye].player, Vector2.zero, Quaternion.identity);
 		enemyPool = GameObject.Find ("EnemyPool").GetComponent<EnemyPool>();
@@ -33,8 +33,6 @@ public class ArtController : MonoBehaviour {
 		bulletPool.bulletPrefab = artStyles[currentArtStye].bullet;
 
 		if (artStyles [currentArtStye].background != null) {
-			//(PREGUNTAR AL PROFE COMO ALTERAR LA RESOLUCIÓN DE UN SPRITE O QUE SE ESCALE IGUAL AL TAMAÑO DE PANTALLA)
-			//artStyles [currentArtStye].background.rect.size.Set (GetScreenSize.screenSize.maxInX*2, GetScreenSize.screenSize.maxInY*2);	
 			//Asignamos el respectivo background sólo si el artystyle tiene uno
 			background.sprite = artStyles [currentArtStye].background;
 		} else {

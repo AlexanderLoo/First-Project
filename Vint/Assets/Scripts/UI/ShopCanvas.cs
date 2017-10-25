@@ -47,34 +47,21 @@ public class ShopCanvas : MonoBehaviour {
 		_scrollBar.value = Mathf.Lerp (_scrollBar.value, finalValue, Time.deltaTime * smoothing);
 
 	}
-
-	//***********FUNCIONES PARA COMPRAR ITEMS*************(CÓDIGO IMPROVISADO, EN ESPERA DE SUGERENCIAS) =)
-	public void FirstItem(){
+	//Función para equipar el tema
+	public void EquipItem(int index){
 
 		//Comparamos si tenemos monedas suficiente para comprar el item 
-		if (DataManager.dataManager.totalCoins >= artStyles [0].cost) {
+		if (DataManager.dataManager.totalCoins >= artStyles [index].cost) {
 			//Si es asi, llamamos la función CoinsManager(dentro de DataManager) para descontar las monedas
-			DataManager.dataManager.CoinsManager (-artStyles [0].cost);
+			DataManager.dataManager.CoinsManager (-artStyles [index].cost);
 			//por el momento "equipamos" el diseño y actualizamos las monedas totales
-			PlayerPrefs.SetInt ("CurrentArtStyle", 0);
+			PlayerPrefs.SetInt ("CurrentArtStyle", index);
 			showCoins.UpdateTotalCoins ();
 		} else {
 
 			iapManager.ActiveIAPScreen ();
 			print ("No tienes suficientes monedas =(");
 			//SE PIENSA REMPLAZAR ESTA ÚLTIMA LÍNEA CON UN MOLESTO SCREEN DE UN DESCUENTO EN LOTES DE MONEDAS XD
-		}
-	}
-	public void SecondItem(){
-
-		if (DataManager.dataManager.totalCoins >= artStyles [1].cost) {
-
-			DataManager.dataManager.CoinsManager (-artStyles [1].cost);
-			PlayerPrefs.SetInt ("CurrentArtStyle", 1);
-			showCoins.UpdateTotalCoins ();
-		} else {
-			iapManager.ActiveIAPScreen ();
-			print ("No tienes suficientes monedas =(");
 		}
 	}
 }
