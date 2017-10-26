@@ -11,5 +11,6 @@ public class ArtStyles : ScriptableObject {
 	public GameObject[] enemies;
 	public GameObject bullet;
 	public Sprite background;
+	public AudioClip shotSoundAC;
 
 }

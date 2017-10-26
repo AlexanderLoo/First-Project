@@ -40,6 +40,7 @@ public class Shooting : MonoBehaviour {
 		
 		if (shot) {
 			bulletsPool.SpawnBullets (shotSpawn.position, shotSpawn.rotation);
+			AudioController.audioController.PlayShotSound ();
 		}
 	}
 

@@ -17,7 +17,7 @@ public class ArtController : MonoBehaviour {
 	void Awake(){
 
 		//Obtemos el índice del último diseño equipado
-		currentArtStye = PlayerPrefs.GetInt ("CurrentArtStyle");
+		//currentArtStye = PlayerPrefs.GetInt ("CurrentArtStyle");
 		//Instanciamos al player según el diseño obtenido
 		Instantiate (artStyles [currentArtStye].player, Vector2.zero, Quaternion.identity);
 		enemyPool = GameObject.Find ("EnemyPool").GetComponent<EnemyPool>();
@@ -44,6 +44,8 @@ public class ArtController : MonoBehaviour {
 			1/artStyles[currentArtStye].backgroundColor.y,
 			1/artStyles[currentArtStye].backgroundColor.z);
 		Camera.main.backgroundColor = newColor;*/
-	
+
+		//Agregamos el respectivo audio de disparo(según el tema) al AudioController
+		AudioController.audioController.currentShotSoundAC = artStyles [currentArtStye].shotSoundAC;	
 	}
 }

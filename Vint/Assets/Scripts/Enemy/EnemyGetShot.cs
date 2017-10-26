@@ -33,6 +33,7 @@ public class EnemyGetShot : MonoBehaviour {
 			//Dropeamos una moneda si tenemos suerte
 			if (coinDrop.coinDrop) {
 				coinPool.SpawnCoins (transform.position);
+				AudioController.audioController.PlayDropCoinSound ();
 			}
 			gameObject.SetActive (false);
 			//restamos el conteo de enemigos activados
