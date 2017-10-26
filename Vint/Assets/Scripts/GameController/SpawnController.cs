@@ -13,18 +13,26 @@ public class SpawnController : MonoBehaviour {
 	//Esta variable cuenta los enemigos activos(la antigua variable "enemyCount")
 	public int activeEnemies;
 	public int startWaveNum = 3;
+	public int RatioWave = 10;
 	private int currentEnemiesCount;
+	public ShowScore _showScore;
 
 	private Health playerHealth;
 
 	void Start(){
 
+		_showScore = GameObject.Find ("ScoreText").GetComponent<ShowScore> ();
 		playerHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<Health> ();
-		InvokeRepeating ("BasicWave", startWaveNum, startWaveNum);
+		InvokeRepeating ("TopWave", startWaveNum, RatioWave);
+		InvokeRepeating ("RightWave", startWaveNum + 3, RatioWave);
+
 	}
 
 	void Update(){
-
+		if (_showScore.score > 1) {
+			Debug.Log ("Hols");
+			RatioWave = 1;
+		}
 	}
 
 	void TopButtonSpawns(){
@@ -72,11 +80,27 @@ public class SpawnController : MonoBehaviour {
 
 	//*******Las siguientes funciones manejan los waves***********
 
-	void BasicWave(){
+//	void BasicWave(){
+//
+//		if (playerHealth.alive) {
+//			RightLeftSpawns ();
+//			TopButtonSpawns ();
+//		}
+//
+//	}
+
+	void TopWave(){
+
+		if (playerHealth.alive) {
+			TopButtonSpawns ();
+		}
+
+	}
+	void RightWave(){
 
 		if (playerHealth.alive) {
 			RightLeftSpawns ();
-			TopButtonSpawns ();
+
 		}
 
 	}

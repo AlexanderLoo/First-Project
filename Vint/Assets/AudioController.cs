@@ -32,7 +32,7 @@ public class AudioController : MonoBehaviour {
 	//Las siguientes funciones permiten activar los sonidos
 	void ActiveSound(AudioClip ac){
 
-		_audioSource.Stop ();
+		// _audioSource.Stop ();
 		_audioSource.clip = ac;
 		_audioSource.Play ();
 	}
