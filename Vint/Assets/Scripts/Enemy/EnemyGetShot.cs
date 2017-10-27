@@ -11,17 +11,20 @@ public class EnemyGetShot : MonoBehaviour {
 	private CoinPool coinPool;
 	private CoinDrop coinDrop;
 	//Esta variable sirve para setear la cantidad de divisiones que va tener el enemigo
-	private int enemiesNum = 0, maxEnemiesNum = 2;
+	public int enemiesNum = 0, maxEnemiesNum = 2;
 	public bool bigSizeEnemy, normalSizeEnemy, smallSizeEnemy;
-	private SpawnController spawnController;
+	private SpawnController _spawnController;
+
 
 	void Awake(){
 
 		enemyPoolList = GameObject.Find ("EnemyPool").GetComponent<EnemyPool> ().enemyList;
 		showScore = GameObject.Find ("ScoreText").GetComponent<ShowScore> ();
-		spawnController = GameObject.Find ("SpawnController").GetComponent<SpawnController> ();
+		_spawnController = GameObject.Find ("SpawnController").GetComponent<SpawnController> ();
 		coinPool = GameObject.Find ("CoinPool").GetComponent<CoinPool> ();
 		coinDrop = GetComponent<CoinDrop> ();
+
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -37,7 +40,7 @@ public class EnemyGetShot : MonoBehaviour {
 			}
 			gameObject.SetActive (false);
 			//restamos el conteo de enemigos activados
-			spawnController.activeEnemies--;
+			_spawnController.activeEnemies--;
 		}
 	}
 
@@ -79,7 +82,7 @@ public class EnemyGetShot : MonoBehaviour {
 		enemyPoolList [i].SetActive (true);
 		enemyPoolList [i].transform.position = transform.position;
 		enemyPoolList [i].transform.rotation = transform.rotation;
-		spawnController.activeEnemies++;
+		_spawnController.activeEnemies++;
 		return enemyPoolList [i];
 	}
 

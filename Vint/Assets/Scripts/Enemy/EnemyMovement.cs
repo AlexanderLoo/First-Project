@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour {
 	public bool playerDetected;
 	public float speed;
 	public float changePatrolTime;
+	public float PatrolSpeed;
 
 	void Start(){
 
@@ -40,7 +41,7 @@ public class EnemyMovement : MonoBehaviour {
 			movement = followPlayerVector;
 			//aumentamos el tiempo del patron de seguimiento y aumentamos la velocidad de movimiento
 			changePatrolTime = 0.5f;
-			speed = 3;
+			speed = PatrolSpeed;
 		} else {
 			//Dirección random en 'X' y en 'Y' con rango de -1,0,1
 			int Xdirection = Random.Range (-1, 2);

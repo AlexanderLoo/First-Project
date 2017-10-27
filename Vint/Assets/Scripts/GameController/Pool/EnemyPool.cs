@@ -10,21 +10,22 @@ public class EnemyPool : MonoBehaviour {
 	[System.NonSerialized]
 	public GameObject[] enemyList;
 
+
 	void Start(){
 
-		enemyList = new GameObject[30];
+		enemyList = new GameObject[45];
 	
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 15; i++) {
 			GameObject newEnemy = (GameObject)Instantiate (enemiesTypes [0]);
 			newEnemy.SetActive (false);
 			enemyList [i] = newEnemy;
 		}
-		for (int i = 10; i < 20; i++) {
+		for (int i = 15; i < 30; i++) {
 			GameObject newEnemy = (GameObject)Instantiate (enemiesTypes [1]);
 			newEnemy.SetActive (false);
 			enemyList [i] = newEnemy;
 		}
-		for (int i = 20; i < 30; i++) {
+		for (int i = 30; i < 45; i++) {
 			GameObject newEnemy = (GameObject)Instantiate (enemiesTypes [2]);
 			newEnemy.SetActive (false);
 			enemyList [i] = newEnemy;
