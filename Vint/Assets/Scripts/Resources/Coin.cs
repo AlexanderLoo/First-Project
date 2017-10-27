@@ -15,7 +15,6 @@ public class Coin : MonoBehaviour {
 		//Si el Player Colisiona con moneda, esta se desactiva y agregamos una moneda al total de monedas del player
 		if (other.CompareTag("Player")) {
 			DataManager.dataManager.CoinsManager (1);
-			AudioController.audioController.PlayPickCoinSound ();
 			gameObject.SetActive (false);
 		}
 	}

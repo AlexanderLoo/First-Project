@@ -13,11 +13,13 @@ public class Shooting : MonoBehaviour {
 	//este es el pool de donde vamos a sacar las balas
 	private BulletsPool bulletsPool;
 	private VirtualJoystick onDragAimJoystick;
+	private AudioSource _as;
 
 	void Start () {
 
 		bulletsPool = GameObject.Find ("BulletPool").GetComponent<BulletsPool> ();
 		onDragAimJoystick = GameObject.Find ("AimBackgroundJoystick").GetComponent<VirtualJoystick> ();
+		_as = GetComponent<AudioSource> ();
 		InvokeRepeating ("CreateBullet", 0, fireRate);
 	}
 		
@@ -40,7 +42,8 @@ public class Shooting : MonoBehaviour {
 		
 		if (shot) {
 			bulletsPool.SpawnBullets (shotSpawn.position, shotSpawn.rotation);
-			AudioController.audioController.PlayShotSound ();
+			//Reproducimos el sonido de disparo
+			_as.Play();
 		}
 	}
 

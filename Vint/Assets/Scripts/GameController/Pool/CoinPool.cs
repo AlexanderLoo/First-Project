@@ -6,7 +6,12 @@ public class CoinPool : MonoBehaviour {
 
 	public GameObject coin;
 	private GameObject[] coinList;
+	private AudioSource _as;
 
+	void Awake(){
+
+		_as = GetComponent<AudioSource> ();
+	}
 	void Start(){
 
 		coinList = new GameObject[10];
@@ -26,6 +31,7 @@ public class CoinPool : MonoBehaviour {
 				coinList [i].SetActive (true);
 				coinList [i].transform.position = pos;
 				coinList [i].transform.rotation = Quaternion.identity;
+				_as.Play ();
 				return coinList [i];
 			}
 		}

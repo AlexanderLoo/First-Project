@@ -16,7 +16,11 @@ public class ShopCanvas : MonoBehaviour {
 	private ShowCoins showCoins;
 	private IAPManager iapManager;
 
+	public AudioClip pressButtonAC, cancelButtonAC, equipButtonAC;
+	private AudioSource _as;
+
 	void Awake(){
+		_as = GetComponent<AudioSource> ();
 		//Al iniciar la escena asignamos cada item con sus respectivos nombres y costos
 		for (int i = 0; i < artStyles.Length; i++) {
 			nameText [i].text = artStyles [i].name;
@@ -27,18 +31,18 @@ public class ShopCanvas : MonoBehaviour {
 	}
 	//Si se presiona el botón derecho scrolleamos un valor definido hacia la derecha
 	public void RightButtonPressed(){
-
+		PlayAudio (pressButtonAC);
 		finalValue = _scrollBar.value + valueController;
 	}
 
 	//Del mismo modo hacia la izquierda
 	public void LeftButtonPressed(){
-
+		PlayAudio (pressButtonAC);
 		finalValue = _scrollBar.value - valueController;
 	}
 	//Al presionar el botón de atrás(X) regresamos a la pantalla de inicio
 	public void BackHomeScreen(){
-
+		PlayAudio (pressButtonAC);
 		SceneManager.LoadScene ("HomeScreen");
 	}
 
@@ -57,11 +61,19 @@ public class ShopCanvas : MonoBehaviour {
 			//por el momento "equipamos" el diseño y actualizamos las monedas totales
 			PlayerPrefs.SetInt ("CurrentArtStyle", index);
 			showCoins.UpdateTotalCoins ();
+			PlayAudio (equipButtonAC	);
+
 		} else {
+			PlayAudio (cancelButtonAC);
 
 			iapManager.ActiveIAPScreen ();
 			print ("No tienes suficientes monedas =(");
 			//SE PIENSA REMPLAZAR ESTA ÚLTIMA LÍNEA CON UN MOLESTO SCREEN DE UN DESCUENTO EN LOTES DE MONEDAS XD
 		}
+	}
+
+	void PlayAudio(AudioClip ac){
+		_as.clip = ac;
+		_as.Play ();
 	}
 }

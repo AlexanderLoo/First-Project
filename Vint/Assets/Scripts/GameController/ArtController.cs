@@ -45,7 +45,5 @@ public class ArtController : MonoBehaviour {
 			1/artStyles[currentArtStye].backgroundColor.z);
 		Camera.main.backgroundColor = newColor;*/
 
-		//Agregamos el respectivo audio de disparo(según el tema) al AudioController
-		AudioController.audioController.currentShotSoundAC = artStyles [currentArtStye].shotSoundAC;	
 	}
 }

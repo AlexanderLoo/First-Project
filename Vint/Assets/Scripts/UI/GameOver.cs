@@ -30,8 +30,6 @@ public class GameOver : MonoBehaviour {
 			}*/
 			//Mostramos la ventana de Game Over
 			gameOverUI.SetActive (true);
-			//Repoducimos el sonido de GameOver
-			AudioController.audioController.PlayGameOverSound();
 			//Mostramos el score alcanzado
 			Text totalScore = GameObject.Find ("TotalScoreText").GetComponent<Text> ();
 			totalScore.text = currentScore.score.ToString();
