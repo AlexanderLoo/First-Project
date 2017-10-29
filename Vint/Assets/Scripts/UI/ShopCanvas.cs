@@ -61,7 +61,6 @@ public class ShopCanvas : MonoBehaviour {
 			//por el momento "equipamos" el diseño y actualizamos las monedas totales
 			PlayerPrefs.SetInt ("CurrentArtStyle", index);
 			showCoins.UpdateTotalCoins ();
-			PlayAudio (equipButtonAC	);
 
 		} else {
 			PlayAudio (cancelButtonAC);

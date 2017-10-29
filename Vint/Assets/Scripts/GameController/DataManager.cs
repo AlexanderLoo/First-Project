@@ -7,6 +7,8 @@ public class DataManager : MonoBehaviour {
 	public static DataManager dataManager;
 	public int bestScore, totalCoins;
 
+	private AudioSource _as;
+
 	void Awake(){
 
 		if (dataManager == null) {
@@ -20,6 +22,7 @@ public class DataManager : MonoBehaviour {
 		//Obtenemos el mejor score y las monedas totales guardadas en la memoria
 		bestScore = PlayerPrefs.GetInt("BestScore");
 		totalCoins = PlayerPrefs.GetInt ("TotalCoins");
+		_as = GetComponent<AudioSource> ();
 	}
 
 	public void UpdateBestScore(int score){
@@ -38,5 +41,7 @@ public class DataManager : MonoBehaviour {
 		//Para asegurarnos que la cantidad exacta se guarde en la memoria
 		PlayerPrefs.SetInt ("TotalCoins", totalCoins);
 		totalCoins = PlayerPrefs.GetInt ("TotalCoins");
+		//Reproducimos el audio de recompensa(moneda recolectada)
+		_as.Play ();
 	}
 }

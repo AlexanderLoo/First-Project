@@ -26,7 +26,6 @@ public class Coin : MonoBehaviour {
 	}
 
 	void OnDisable(){
-
 		CancelInvoke ("DestroyCoin");
 	}
 }
