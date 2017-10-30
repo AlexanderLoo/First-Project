@@ -9,8 +9,7 @@ public class GameOver : MonoBehaviour {
 	public ShowScore currentScore;
 	public GameObject mobileController;
 	private Health playerHealth;
-	//variable para saber si ya se mostro el panel de Game Over(se creó para que no loopee el sonido de Game Over)
-	private bool showGameOverPanel = false;
+
 
 
 	void Start(){
@@ -19,7 +18,7 @@ public class GameOver : MonoBehaviour {
 	}
 	void Update(){
 		//Si el player está muerto desactivamos los enemigos que siguen en la escena
-		if (!playerHealth.alive && !showGameOverPanel) {
+		if (!playerHealth.alive) {
 
 			Time.timeScale = 0;
 			mobileController.SetActive (false);
@@ -35,7 +34,6 @@ public class GameOver : MonoBehaviour {
 			totalScore.text = currentScore.score.ToString();
 			//llamamos la función para actualizar el mejor score
 			DataManager.dataManager.UpdateBestScore (currentScore.score);
-			showGameOverPanel = true;
 		}
 	}
 

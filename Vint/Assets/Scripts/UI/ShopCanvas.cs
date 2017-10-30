@@ -67,12 +67,12 @@ public class ShopCanvas : MonoBehaviour {
 
 			iapManager.ActiveIAPScreen ();
 			print ("No tienes suficientes monedas =(");
-			//SE PIENSA REMPLAZAR ESTA ÚLTIMA LÍNEA CON UN MOLESTO SCREEN DE UN DESCUENTO EN LOTES DE MONEDAS XD
 		}
 	}
 
-	void PlayAudio(AudioClip ac){
+	public void PlayAudio(AudioClip ac){
 		_as.clip = ac;
 		_as.Play ();
 	}
+
 }
