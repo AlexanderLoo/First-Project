@@ -7,7 +7,7 @@ public class GameOver : MonoBehaviour {
 
 	public GameObject gameOverUI;
 	public ShowScore currentScore;
-	public GameObject mobileController;
+	private GameObject mobileController;
 	private Health playerHealth;
 
 
@@ -15,6 +15,8 @@ public class GameOver : MonoBehaviour {
 	void Start(){
 
 		playerHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<Health> ();
+		mobileController = GameObject.FindGameObjectWithTag ("VirtualController");
+
 	}
 	void Update(){
 		//Si el player está muerto desactivamos los enemigos que siguen en la escena

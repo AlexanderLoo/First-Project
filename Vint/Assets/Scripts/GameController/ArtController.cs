@@ -44,6 +44,6 @@ public class ArtController : MonoBehaviour {
 			1/artStyles[currentArtStye].backgroundColor.y,
 			1/artStyles[currentArtStye].backgroundColor.z);
 		Camera.main.backgroundColor = newColor;*/
-
+		Instantiate (artStyles [currentArtStye].virtualController);
 	}
 }

@@ -7,18 +7,23 @@ using UnityEngine.SceneManagement;
 public class PauseUI : MonoBehaviour {
 
 	public GameObject pauseMenu, pauseButton;
-	public GameObject mobileController;
 	public GameObject questionPanel,hideBackgroundPanel;
 	public GameObject[] confirmButton, confirmIcon;	
 	//los diferentes audios que vamos a usar 
 	public AudioClip pressButtonAC, pauseAC;
 	private Animator anim;
 	private AudioSource _as;
+	private GameObject mobileController;
+
 
 	void Awake(){
 
 		anim = GetComponent<Animator> ();
 		_as = GetComponent<AudioSource> ();
+	}
+
+	void Start(){
+		mobileController = GameObject.FindGameObjectWithTag ("VirtualController");
 	}
 
 	public void PauseMenuPopup(){

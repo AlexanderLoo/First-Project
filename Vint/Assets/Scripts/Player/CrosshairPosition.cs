@@ -7,7 +7,7 @@ public class CrosshairPosition : MonoBehaviour {
 	private VirtualJoystick aimJoystick;
 	public float aimRadius;
 
-	void Awake(){
+	void Start(){
 
 		aimJoystick = GameObject.Find ("AimBackgroundJoystick").GetComponent<VirtualJoystick> ();
 	}

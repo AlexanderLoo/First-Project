@@ -11,6 +11,8 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
 	private Image backgroudJoystickImage;
 	private Image joystickImage;	
 	public Vector2 inputVector;
+	//Booleano para saber que tipo de control virtual se esta usando
+	public bool spaceController;
 
 	void Awake(){
 

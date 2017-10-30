@@ -12,5 +12,6 @@ public class ArtStyles : ScriptableObject {
 	public GameObject bullet;
 	public Sprite background;
 	public AudioClip shotSoundAC;
+	public GameObject virtualController;
 
 }

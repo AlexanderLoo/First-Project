@@ -5,7 +5,6 @@ using UnityEngine;
 public class Shooting : MonoBehaviour {
 	
 	public Transform shotSpawn;
-	[System.NonSerialized]
 	public bool shot;
 	public float fireRate;
 	//esta es la bala que vamos a crear
@@ -13,6 +12,7 @@ public class Shooting : MonoBehaviour {
 	//este es el pool de donde vamos a sacar las balas
 	private BulletsPool bulletsPool;
 	private VirtualJoystick onDragAimJoystick;
+	private VirtualButton fireButton;
 	private AudioSource _as;
 
 	void Start () {
@@ -20,12 +20,19 @@ public class Shooting : MonoBehaviour {
 		bulletsPool = GameObject.Find ("BulletPool").GetComponent<BulletsPool> ();
 		onDragAimJoystick = GameObject.Find ("AimBackgroundJoystick").GetComponent<VirtualJoystick> ();
 		_as = GetComponent<AudioSource> ();
+		if (GameObject.Find ("FireButton") != null) {
+			fireButton = GameObject.Find ("FireButton").GetComponent<VirtualButton> ();
+		} 
 		InvokeRepeating ("CreateBullet", 0, fireRate);
 	}
 		
 	void Update () {
-		
-		IsShooting ();
+
+		if (onDragAimJoystick.spaceController == false) {
+			IsShooting ();
+		} else {
+			shot = fireButton.buttonPressed;
+		}
 	}
 
 	void IsShooting(){

@@ -10,9 +10,9 @@ public class Purchaser : MonoBehaviour,IStoreListener {
 	private static IExtensionProvider _extension;
 
 	//id de los productos a comprar, en este caso solo usaremos productos "consumable"
-	public static string oneCoinID = "oneCoin";   
-	public static string  oneHundredCoinsID = "oneHundredCoins";
-	public static string infinityCoinsID =  "infinityCoins"; 
+	public static string oneCoinID = "onecoin";   
+	public static string  oneHundredCoinsID = "onehundredcoins";
+	public static string infinityCoinsID =  "infinitycoins"; 
 
 	void Start()
 	{
