@@ -17,7 +17,7 @@ public class ArtController : MonoBehaviour {
 	void Awake(){
 
 		//Obtemos el índice del último diseño equipado
-		currentArtStye = PlayerPrefs.GetInt ("CurrentArtStyle");
+		//currentArtStye = PlayerPrefs.GetInt ("CurrentArtStyle");
 		//Instanciamos al player según el diseño obtenido
 		Instantiate (artStyles [currentArtStye].player, Vector2.zero, Quaternion.identity);
 		enemyPool = GameObject.Find ("EnemyPool").GetComponent<EnemyPool>();

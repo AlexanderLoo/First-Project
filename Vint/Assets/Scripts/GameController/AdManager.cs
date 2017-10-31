@@ -25,7 +25,7 @@ public class AdManager : MonoBehaviour {
 	void Start(){
 
 		//Para vincular el id del juego a la hora de usar unityAds(Buscar el código en UnityAds dashboard)
-		Advertisement.Initialize ("4250bdcf-d9f2-4c9d-812d-8192fe707bb1");
+		//Advertisement.Initialize ("gameId");
 
 	}
 	//Lógica temporal(Se espera sugerencias)
