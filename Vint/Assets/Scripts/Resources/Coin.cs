@@ -7,12 +7,12 @@ public class Coin : MonoBehaviour {
 	public float destroyTime;
 	private SpriteRenderer _spriteRenderer;
 	private float targetAlpha;
-	private bool StartBlinking = false;
+	private bool startBlinking = false;
 
 	void OnEnable(){
 		//Hacemos desaparecer la moneda después de un breve periodo de tiempo
 		_spriteRenderer = GetComponent<SpriteRenderer> ();
-		Invoke ("Blink", 2);
+		Invoke ("Blink", 3);
 		Invoke ("DestroyCoin",destroyTime);
 
 	}
@@ -32,23 +32,19 @@ public class Coin : MonoBehaviour {
 	void DestroyCoin(){
 
 		gameObject.SetActive (false);
-		StartBlinking = false;
-
-
+		startBlinking = false;
 	}
 	void Blink(){
-		StartBlinking = true;	
+		startBlinking = true;	
 	}
 
 	void OnDisable(){
 		CancelInvoke ("DestroyCoin");
 		CancelInvoke ("Blink");
-
-		
 	}
 
 	void ManageBlinking (){
-		if (StartBlinking) {
+		if (startBlinking) {
 			Color newColor = _spriteRenderer.color;
 			newColor.a = Mathf.Lerp (newColor.a, targetAlpha, Time.deltaTime * 20);
 			if (newColor.a < 0.05f) {
